@@ -1,14 +1,11 @@
 $(function(){
-
-
-
-
     console.log('The dom is ready! (drill 4)');
 
     //shuffle shapes on first load
     shuffleShapes();
     //shuffle shapes on click of shuffle button
     $('#shuffleThem').on('click',shuffleShapes);
+    $('#doIt').on('click', action)
 
 });
 
@@ -25,4 +22,42 @@ var shuffleShapes = function(){
         //update the items to their new positions
         $(this).html(idx).animate({left:newLeft+'px',top:newTop+'px'},1000);
     });
+}
+// $($('.shape')[10]).text()
+var action = function() {
+  var whoDo = $('#whoDo').val()
+  var whatDo = $('#whatDo').val()
+  var getOnly = function() {
+    if (whoDo == 'even') {
+      return
+    }
+  }
+  console.log('whodo: ', whoDo);
+  if (whatDo == 'red') {
+    $('.shape').css({backgroundColor: 'red'})
+  }
+  if (whatDo == 'blue') {
+    $('.shape').css({backgroundColor: 'blue'})
+  }
+  if (whatDo == 'purple') {
+    $('.shape').css({backgroundColor: 'purple'})
+  }
+  if (whatDo == 'yellow') {
+    $('.shape').css({backgroundColor: 'yellow'})
+  }
+  if (whatDo == 'orange') {
+    $('.shape').css({backgroundColor: 'orange'})
+  }
+  if (whatDo == 'square') {
+    $('.shape').removeClass('ball')
+  }
+  if (whatDo == 'circle') {
+    $('.shape').addClass('ball')
+  }
+  if (whatDo == 'fadeout') {
+    $('.shape').fadeOut()
+  }
+  if (whatDo == 'fadein') {
+    $('.shape').fadeIn()
+  }
 }
